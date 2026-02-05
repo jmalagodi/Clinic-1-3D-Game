@@ -3,17 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControl : MonoBehaviour
 {
-    [Header("Movement")]
     public float moveSpeed = 5f;
-    public float gravity = -9.81f;  // Gravity value
+    public float gravity = -9.81f; 
 
-    [Header("Mouse Look")]
     public float mouseSensitivity = 1f;
     public Transform cameraPivot;
 
     private CharacterController controller;
     private float xRotation = 0f;
-    private float yVelocity = 0f;   // Vertical speed
+    private float yVelocity = 0f;
 
     void Start()
     {
@@ -42,22 +40,18 @@ public class PlayerControl : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Get input
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
-
-        // Normalize diagonal movement
+       
         if (move.magnitude > 1f)
             move.Normalize();
 
-        // Apply gravity
         if (controller.isGrounded && yVelocity < 0)
-            yVelocity = 0f;   // Reset vertical speed when grounded
+            yVelocity = 0f;   
 
         yVelocity += gravity * Time.deltaTime;
 
-        // Add vertical velocity to movement
         Vector3 velocity = move * moveSpeed;
         velocity.y = yVelocity;
 
