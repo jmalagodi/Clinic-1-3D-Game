@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float gravity = -9.81f; 
+    public float gravity = -10f; 
 
     public float mouseSensitivity = 1f;
     public Transform cameraPivot;
