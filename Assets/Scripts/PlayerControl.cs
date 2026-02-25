@@ -4,22 +4,18 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
-<<<<<<< Updated upstream
+
     public float gravity = -10f; 
-=======
-    public float gravity = -9.81f; 
->>>>>>> Stashed changes
+
 
     public float mouseSensitivity = 1f;
     public Transform cameraPivot;
 
     private CharacterController controller;
     private float xRotation = 0f;
-<<<<<<< Updated upstream
-    private float yVelocity = 0f;
-=======
-    private float yVelocity = 0f;   
->>>>>>> Stashed changes
+
+    private float yVelocity = 0f;  
+
 
     void Start()
     {
@@ -51,20 +47,13 @@ public class PlayerControl : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
-<<<<<<< Updated upstream
-       
-=======
 
->>>>>>> Stashed changes
         if (move.magnitude > 1f)
             move.Normalize();
 
         if (controller.isGrounded && yVelocity < 0)
-<<<<<<< Updated upstream
+
             yVelocity = 0f;   
-=======
-            yVelocity = 0f;  
->>>>>>> Stashed changes
 
         yVelocity += gravity * Time.deltaTime;
 
